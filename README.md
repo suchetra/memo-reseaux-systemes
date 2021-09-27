@@ -9,12 +9,13 @@ SSH
 ssh allow password login ?
 
 
-
 * créer un fichier
   * touche nomFichier.txt
 
 * pour accéder et éditer un fichier
   * nano nomFichier.txt
+  * pour quitter une fois édité
+    * ctrl s puis ctrl x 
 
 * accéder au dossier
   * cd nomDossier
@@ -34,7 +35,7 @@ ___
 * créer un nouvel user
   * adduser nico2 
 
-* donner des privilèges au user actuel
+* donner des privilèges au user actuel ?
   * sudo 
 
 * créer un user et donner des privilèges
@@ -60,13 +61,15 @@ ctrl ^x pour quitter)
 
 ___
 
+scp root@monip: chemindufichier identifiantDestinataire@sonip ?
+
 * envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via son mot de passe), puis saisir son identifiant et mot de passe
   * scp nomFichier identifiantDestinataire@adresseIPDestinataire:
 
 * envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via la clé)
   * créer un fichier .txt "key"
   * coller la clé à l'intérieur
-  * restreindre les droit d'accès (“rw rw r” devenu “rw”)
+  * restreindre les droit d'accès (“rw rw r” devenu “rw”) (voir sur Google "permission fichier linux") de key est un fichier .txt
     * chmod 600 key 
   * le deuxième nomFichierAEnvoyer.txt peut être modifier pour qu'il ait un nouveau nom dans le serveur destinataire
     * scp -i key nomFichierAEnvoyer.txt root@adresseIPDestinataire:nomFichierAEnvoyer.txt 
