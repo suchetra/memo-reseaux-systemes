@@ -90,5 +90,5 @@ chat en ligne avec commande netcat
 
 
 * Version - hébergement et quelqu’un nous rejoint
-  * Je suis connecté en root, 64000 étant le channel
-    * nc -l -p  64000 par exemple
+  * Je suis connecté en root, 64000 étant le port
+    * nc -l -p  64000
