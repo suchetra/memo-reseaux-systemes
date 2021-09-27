@@ -16,6 +16,8 @@ ssh allow password login ?
   * nano nomFichier.txt
   * pour quitter une fois édité
     * ctrl s puis ctrl x 
+    * ctrl c pour exit ?
+
 
 * accéder au dossier
   * cd nomDossier
@@ -77,3 +79,16 @@ scp root@monip: chemindufichier identifiantDestinataire@sonip ?
     * sudo ls /root
   * vérifier depuis le serveur et depuis le root destinataire que le fichier est reçu :
     * ls
+___
+
+chat en ligne avec commande netcat 
+
+* Version - rejoindre quelqu’un qui héberge le port
+  * Je suis connecté avec mon user et le destinataire est en root 
+  * 0102 étant le port, choix du port entre 1024 - 65000 (en dehors pour les usages internes, exemple ssh port par défaut 22, 443 pour HTTP, etc.)
+    * nc  adresseIPDestination 0102 
+
+
+* Version - hébergement et quelqu’un nous rejoint
+  * Je suis connecté en root, 64000 étant le channel
+    * nc -l -p  64000 par exemple
