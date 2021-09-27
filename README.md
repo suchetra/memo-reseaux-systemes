@@ -34,7 +34,7 @@ ssh allow password login ?
 
 ___
 
-*  installer des packages
+* installer des packages
   * apt install nomPackage 
  
 * créer un nouvel user
