@@ -34,6 +34,9 @@ ssh allow password login ?
 
 ___
 
+*  installer des packages
+  * apt install nomPackage
+ 
 * créer un nouvel user
   * adduser nico2 
 
