@@ -6,28 +6,71 @@ SSH
   * service ssh restart 
 
 
-ssh allow password login
+ssh allow password login ?
 
-id dans puty 
-user nico 2
-password aze
 
-putty auth clé ssh pour connexion en root
-adduser nico2 (creer une nouvel user)
-sudo (donner prifilege a ton user actuel)
-sudo adduser
 
-usermod -aG sudo nico2      donne provilege a nico2
+* créer un fichier
+  * touche nomFichier.txt
 
-ssh nico2@localhost	pour s auto connecter
+* pour accéder et éditer un fichier
+  * nano nomFichier.txt
 
-groups 	pour savoir dans quelle group je suis	
+* accéder au dossier
+  * cd nomDossier
 
-apt install nano
-(nano /etc/ssh/sshd_config)
-(password asked : yes
+* lister les fichiers
+  * ls
+  * ll (en plus précis)
+
+* voir un fichier
+  * cat nomFichier.txt
+
+* supprimer un fichier
+  * rm nomFichier.txt
+
+___
+
+* créer un nouvel user
+  * adduser nico2 
+
+* donner des privilèges au user actuel
+  * sudo 
+
+* créer un user et donner des privilèges
+  * sudo adduser
+
+* donner des privilèges à nico2
+  * usermod -aG sudo nico2
+
+* pour s'auto connecter
+  * ssh nico2@localhost	
+
+* pour savoir dans quel groupe je suis	
+  * groups
+
+apt install nano ?
+
+* Configurer et autoriser le password (à faire depuis le root)
+  * nano /etc/ssh/sshd_config
+
+password asked : yes
 chercher ctrl w
 ctrl ^x pour quitter) 
 
-service ssh restart
+___
 
+* envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via son mot de passe), puis saisir son identifiant et mot de passe
+  * scp nomFichier identifiantDestinataire@adresseIPDestinataire:
+
+* envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via la clé)
+  * créer un fichier .txt "key"
+  * coller la clé à l'intérieur
+  * restreindre les droit d'accès (“rw rw r” devenu “rw”)
+    * chmod 600 key 
+  * le deuxième nomFichierAEnvoyer.txt peut être modifier pour qu'il ait un nouveau nom dans le serveur destinataire
+    * scp -i key nomFichierAEnvoyer.txt root@adresseIPDestinataire:nomFichierAEnvoyer.txt 
+  * vérifier depuis le serveur et depuis le user destinataire que le fichier est reçu :
+    * sudo ls /root
+  * vérifier depuis le serveur et depuis le root destinataire que le fichier est reçu :
+    * ls
