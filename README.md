@@ -95,3 +95,53 @@ chat en ligne avec commande netcat
 * Version - hébergement et quelqu’un nous rejoint
   * Je suis connecté en root, 64000 étant le port
     * nc -l -p  64000
+___
+___
+
+Docker
+
+(cf : https://www.wanadev.fr/24-tuto-docker-demarrer-docker-partie-2/)
+
+* démarrer Docker
+  * docker run -d -p 80:80 docker/getting-started
+
+* affiche la liste des containers qui tournent sur la machine
+  * docker ps
+
+* pour arrêter le container
+  * docker rm nomIDContainer 
+  * docker rm surnomCommeVigorousDog
+  * ou simplement faire "exit" quand on est en mode interactif
+
+* Voir l'historique entre l'image de base et l'image finale (on stocke en réalité tous les containers qui nous ont permis de passer de l'image de base à l'image finale) 
+  * docker history
+* voir la « bibliothèque » d'images
+  * docker images
+
+* chercher une image
+  * docker search nomImage
+* télécharger une image
+  * docker pull nomImage
+
+
+* Construire une image depuis un Dockerfile (spécifier le chemin du Dockerfile (d'où le point à la fin de la commande si vous lancez la commande depuis le même endroit)
+  * docker build .
+* Nommer une image au moment de l'utilisation de docker-commit, gra^ce à la commande docker-build et de son option --tag
+  * $ docker build --tag="myImage[:myTag]"
+
+
+* créer un docker file
+  * vi nomFichier
+
+
+* vérifier les droits
+  * groups
+* Add your user to the docker group (redémarrer Putty en quittant et se reconnectant)
+  * sudo usermod -aG docker $USER
+* voir les info docker
+  * docker info
+
+* créer une image
+  * docker run -d --name container1 ubuntu:latest
+  * docker run -d --name container1 ubuntu sleep3600 (pas bon car ubuntu remplace )
+
