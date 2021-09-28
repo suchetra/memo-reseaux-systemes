@@ -145,3 +145,63 @@ Docker
   * docker run -d --name container1 ubuntu:latest
   * docker run -d --name container1 ubuntu sleep3600 (pas bon car ubuntu remplace )
 
+___
+
+Tuto :
+* lancer Docker
+* créer Dockerfile
+* modifier Dockerfile et mettre : 
+
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install -y apt-utils && rm -rf /var/lib/apt/lists/*
+# Set the locale
+RUN  apt-get update && apt-get install locales && locale-gen en_US.UTF-8 && rm -rf /var/lib/apt/lists/*
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server php
+
+remarque :
+-y veut dire yes
+Si demandé : Geographic area: 8
+
+
+Quand l'installation est complète, ensuite :
+
+(boutique nomImage)
+* docker build -t boutique .
+
+* docker images
+* nano start.sh
+
+on modifie dans le start.sh : 
+* docker run -ti -p 80:80 --name nicolas boutique bash
+
+remarque :
+nicolas est le surnom du container
+
+on sort
+* sudo chmod +x start.sh
+
+* ./start.sh 
+
+puis
+* service apache2 start
+
+si on sort il faut dire qu'on supprime nicolas dans le start.sh :
+* docker run -ti -p 80:80 --name nicolas --rm boutique bash
+
+ctrl d pour sortir 
+./start.sh 
+
+autres commandes :
+ctrl s
+ctrl x
+
+* renommer
+  * mv Dockerfile2 Dockerfile
+
+Si container name is conflict
+
+* docker stop nicolas
+* docker rm nicolas
