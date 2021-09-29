@@ -169,12 +169,14 @@ Si demandé : Geographic area: 8
 Quand l'installation est complète, ensuite :
 
 (boutique nomImage)
+argument -t https://stackoverflow.com/questions/30137135/confused-about-docker-t-option-to-allocate-a-pseudo-tty
 * docker build -t boutique .
 
 * docker images
 * nano start.sh
 
 on modifie dans le start.sh : 
+-ti https://docs.docker.com/engine/reference/run/
 * docker run -ti -p 80:80 --name nicolas boutique bash
 
 remarque :
@@ -194,9 +196,48 @@ si on sort il faut dire qu'on supprime nicolas dans le start.sh :
 ctrl d pour sortir 
 ./start.sh 
 
+___
+
+faire un commit :
+ouvrir un deuxième putty
+docker commit idContainer nomImage
+
+___
+
+ls
+cd var/www/html/
+ls
+service apache2 start
+dans navigateur aller sur son adresse IP
+
+rm index.html
+ls
+git clone https://github.com/suchetra/ClothingStore.git .
+apt-get install git
+
+nano : editeur de texte
+apt-get install nano
+
+
+vers index.php
+git status
+git branch
+(inscription nom de la branche)
+git checkout inscription
+git pull
+apt-get install phpmyadmin
+apt-get install sql-server
+
 autres commandes :
+ctrl r (dans navigateur pour rafraichir le cache)
+
 ctrl s
 ctrl x
+* voir quels services est en marche
+  * service --status-all
+mysql --version
+* affiche la liste des containers cachés
+  * docker ps -a 
 
 * renommer
   * mv Dockerfile2 Dockerfile
@@ -205,3 +246,37 @@ Si container name is conflict
 
 * docker stop nicolas
 * docker rm nicolas
+
+Question :
+- est-il possible de créer une image avant un container
+pas de container sans image
+
+
+installer phpmyadmin
+installer sql-server
+
+___
+
+docker run -ti -p 80:80 --name nicolas2container --rm nicolas2container bash
+
+___
+
+docker push reponico:tagnico
+
+docker tag local-image:tagname new-repo:tagname
+docker tag nicolas3image:latest reponico:tagnico
+
+docker push new-repo:tagname
+docker push reponico:tagnico
+
+https://lucasvidelaine.wordpress.com/2018/01/29/utilisation-de-dockerhub/
+$ docker login --username=pseudo
+$ docker images
+
+$ docker tag e7860ef846q5 pseudo/myrepo:test
+$ docker tag 961e0a9a3596 suchetra/reponico2:tagnico2
+
+$ docker push pseudo/myrepo
+$ docker push suchetra/reponico2:tagnico2
+
+$ docker run pseudo/myrepo
