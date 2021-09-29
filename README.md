@@ -40,14 +40,28 @@ ___
 * créer un nouvel user
   * adduser nico2 
 
+* effacer un user
+  * Passez en mode utilisateur racine :
+    * sudo su -
+  * puis :
+    * userdel nomUser
+
+* switch between users on one terminal
+  * su - anotherUser
+
+* To list all local users you can use:
+  * cut -d: -f1 /etc/passwd
+
 * donner des privilèges au user actuel ?
   * sudo 
 
 * créer un user et donner des privilèges
   * sudo adduser
 
-* donner des privilèges à nico2
+* donner des privilèges à nico2 pour utiliser Docker
   * usermod -aG sudo nico2
+* sinon tester :
+  * sudo usermod -a -G docker $USER
 
 * pour s'auto connecter
   * ssh nico2@localhost	
@@ -124,7 +138,7 @@ Docker
   * docker pull nomImage
 
 
-* Construire une image depuis un Dockerfile (spécifier le chemin du Dockerfile (d'où le point à la fin de la commande si vous lancez la commande depuis le même endroit)
+* Construire une image depuis un Dockerfile (spécifier le chemin du Dockerfile (d'où le point à la fin de la commande si vous lancez la commande depuis le même endroit))
   * docker build .
 * Nommer une image au moment de l'utilisation de docker-commit, gra^ce à la commande docker-build et de son option --tag
   * $ docker build --tag="myImage[:myTag]"
