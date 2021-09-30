@@ -1,5 +1,21 @@
 # memo-reseaux-systemes
 
+autres commandes
+q pour quitter
+
+* déplacer dossierA au dossier parent
+  * mv dossierA ..
+  * pour forcer : 
+    * sudo mv dossierA ..
+* effacer dossierA et son contenu 
+  * rm -rf dossierA
+* déplacer file1 file2 file3 et le mettre dans DESTINATION
+  * mv -t DESTINATION file1 file2 file3
+  * déplacer tous les dossiers (sauf les dossiers cachés)
+    * mv * DESTINATION
+
+ssh nicolas.tan@51.15.220.20
+
 SSH
 
 * pour redémarrer la ligne de commande et prendre en compte les modifications
@@ -36,6 +52,10 @@ ___
 
 * installer des packages
   * apt install nomPackage 
+ 
+*  changer mot de passe
+  * se loguer normalement et rentrer la commande :
+    * passwd
  
 * créer un nouvel user
   * adduser nico2 
@@ -77,6 +97,7 @@ apt install nano ?
 password asked : yes
 chercher ctrl w
 ctrl ^x pour quitter) 
+
 
 ___
 
