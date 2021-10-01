@@ -1,123 +1,6 @@
 # memo-reseaux-systemes
 
-autres commandes
-q pour quitter
-
-* déplacer dossierA au dossier parent
-  * mv dossierA ..
-  * pour forcer : 
-    * sudo mv dossierA ..
-* effacer dossierA et son contenu 
-  * rm -rf dossierA
-* déplacer file1 file2 file3 et le mettre dans DESTINATION
-  * mv -t DESTINATION file1 file2 file3
-  * déplacer tous les dossiers (sauf les dossiers cachés)
-    * mv * DESTINATION
-
-ssh nicolas.tan@51.15.220.20
-
-SSH
-
-* pour redémarrer la ligne de commande et prendre en compte les modifications
-  * service ssh restart 
-
-
-ssh allow password login ?
-
-
-* créer un fichier
-  * touche nomFichier.txt
-
-* pour accéder et éditer un fichier
-  * nano nomFichier.txt
-  * pour quitter une fois édité
-    * ctrl s puis ctrl x 
-    * ctrl c pour exit ?
-
-
-* accéder au dossier
-  * cd nomDossier
-
-* lister les fichiers
-  * ls
-  * ll (en plus précis)
-
-* voir un fichier
-  * cat nomFichier.txt
-
-* supprimer un fichier
-  * rm nomFichier.txt
-
-___
-
-* installer des packages
-  * apt install nomPackage 
- 
-*  changer mot de passe
-  * se loguer normalement et rentrer la commande :
-    * passwd
- 
-* créer un nouvel user
-  * adduser nico2 
-
-* effacer un user
-  * Passez en mode utilisateur racine :
-    * sudo su -
-  * puis :
-    * userdel nomUser
-
-* switch between users on one terminal
-  * su - anotherUser
-
-* To list all local users you can use:
-  * cut -d: -f1 /etc/passwd
-
-* donner des privilèges au user actuel ?
-  * sudo 
-
-* créer un user et donner des privilèges
-  * sudo adduser
-
-* donner des privilèges à nico2 pour utiliser Docker
-  * usermod -aG sudo nico2
-* sinon tester :
-  * sudo usermod -a -G docker $USER
-
-* pour s'auto connecter
-  * ssh nico2@localhost	
-
-* pour savoir dans quel groupe je suis	
-  * groups
-
-apt install nano ?
-
-* Configurer et autoriser le password (à faire depuis le root)
-  * nano /etc/ssh/sshd_config
-
-password asked : yes
-chercher ctrl w
-ctrl ^x pour quitter) 
-
-
-___
-
-scp root@monip: chemindufichier identifiantDestinataire@sonip ?
-
-* envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via son mot de passe), puis saisir son identifiant et mot de passe
-  * scp nomFichier identifiantDestinataire@adresseIPDestinataire:
-
-* envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via la clé)
-  * créer un fichier .txt "key"
-  * coller la clé à l'intérieur
-  * restreindre les droit d'accès (“rw rw r” devenu “rw”) (voir sur Google "permission fichier linux") de key est un fichier .txt
-    * chmod 600 key 
-  * le deuxième nomFichierAEnvoyer.txt peut être modifier pour qu'il ait un nouveau nom dans le serveur destinataire
-    * scp -i key nomFichierAEnvoyer.txt root@adresseIPDestinataire:nomFichierAEnvoyer.txt 
-  * vérifier depuis le serveur et depuis le user destinataire que le fichier est reçu :
-    * sudo ls /root
-  * vérifier depuis le serveur et depuis le root destinataire que le fichier est reçu :
-    * ls
-___
+NETCAT
 
 chat en ligne avec commande netcat 
 
@@ -130,7 +13,6 @@ chat en ligne avec commande netcat
 * Version - hébergement et quelqu’un nous rejoint
   * Je suis connecté en root, 64000 étant le port
     * nc -l -p  64000
-___
 ___
 
 Docker
@@ -263,6 +145,9 @@ git pull
 apt-get install phpmyadmin
 apt-get install sql-server
 
+ou cloner une branche spécifique (à tester)
+https://www.freecodecamp.org/news/git-clone-branch-how-to-clone-a-specific-branch/
+
 autres commandes :
 ctrl r (dans navigateur pour rafraichir le cache)
 
@@ -315,3 +200,183 @@ $ docker push pseudo/myrepo
 $ docker push suchetra/reponico2:tagnico2
 
 $ docker run pseudo/myrepo
+
+___
+___
+___
+
+scp root@monip: chemindufichier identifiantDestinataire@sonip ?
+
+* envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via son mot de passe), puis saisir son identifiant et mot de passe
+  * scp nomFichier identifiantDestinataire@adresseIPDestinataire:
+
+* envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via la clé)
+  * créer un fichier .txt "key"
+  * coller la clé à l'intérieur
+  * restreindre les droit d'accès (“rw rw r” devenu “rw”) (voir sur Google "permission fichier linux") de key est un fichier .txt
+    * chmod 600 key 
+  * le deuxième nomFichierAEnvoyer.txt peut être modifier pour qu'il ait un nouveau nom dans le serveur destinataire
+    * scp -i key nomFichierAEnvoyer.txt root@adresseIPDestinataire:nomFichierAEnvoyer.txt 
+  * vérifier depuis le serveur et depuis le user destinataire que le fichier est reçu :
+    * sudo ls /root
+  * vérifier depuis le serveur et depuis le root destinataire que le fichier est reçu :
+    * ls
+
+___
+
+DEPLACEMENT et SUPPRESSION
+
+autres commandes
+q pour quitter
+
+* déplacer dossierA au dossier parent
+  * mv dossierA ..
+  * pour forcer : 
+    * sudo mv dossierA ..
+* effacer dossierA et son contenu 
+  * rm -rf dossierA
+* déplacer file1 file2 file3 et le mettre dans DESTINATION
+  * mv -t DESTINATION file1 file2 file3
+  * déplacer tous les dossiers (sauf les dossiers cachés)
+    * mv * DESTINATION
+* supprimer un fichier
+  * rm nomFichier.txt
+
+SSH
+
+* connexion au serveur distant
+  * ssh nicolas.tan@51.15.220.20
+
+* pour redémarrer la ligne de commande et prendre en compte les modifications
+  * service ssh restart 
+
+
+ssh allow password login ?
+
+
+* créer un fichier
+  * touche nomFichier.txt
+
+* pour accéder et éditer un fichier
+  * nano nomFichier.txt
+  * pour quitter une fois édité
+    * ctrl s puis ctrl x 
+    * ctrl c pour exit ?
+
+
+* accéder au dossier
+  * cd nomDossier
+
+* lister les fichiers
+  * ls
+  * ll (en plus précis)
+
+* voir un fichier
+  * cat nomFichier.txt
+
+___
+
+* installer des packages
+  * apt install nomPackage 
+ 
+*  changer mot de passe
+  * se loguer normalement et rentrer la commande :
+    * passwd
+ 
+* créer un nouvel user
+  * adduser nico2 
+* autre méthode
+  * sudo adduser --force-badname jean.poma
+
+* effacer un user
+  * Passez en mode utilisateur racine :
+    * sudo su -
+  * puis :
+    * userdel nomUser
+
+* switch between users on one terminal
+  * su - anotherUser
+
+* To list all local users you can use:
+  * cut -d: -f1 /etc/passwd
+
+* donner des privilèges au user actuel ?
+  * sudo 
+
+* créer un user et donner des privilèges
+  * sudo adduser
+
+* donner des privilèges à nico2 pour utiliser Docker
+  * usermod -aG sudo nico2
+* sinon tester :
+  * sudo usermod -a -G docker $USER
+
+* pour s'auto connecter
+  * ssh nico2@localhost	
+
+* pour savoir dans quel groupe je suis	
+  * groups
+
+apt install nano ?
+
+* Configurer et autoriser le password (à faire depuis le root)
+  * nano /etc/ssh/sshd_config
+
+password asked : yes
+chercher ctrl w
+ctrl ^x pour quitter) 
+
+___
+
+afficher les log
+var/log
+voir les log en temps réel
+tail -f ?
+
+___ 
+Encryption asymétrique
+
+on a la clé publique
+on donne à l'autre personne (exemple serveur distant) la clé privé comme ça il peut nous envoyer le message 
+
+___
+
+* voir le lien symbolique
+  * Simplest way: cd to where the symbolic link is located and do ls -l to list the details of the files. The part to the right of -> after the symbolic link is the destination to which it is pointing.
+Source: https://ostoday.org/apple/question-how-do-i-update-a-symbolic-link-in-linux.html
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604
+* créer le lien symbolique "le dossier choisi" vers "l'endroit où sera le lien symbolique"
+  * ln -s /home/nicolas.tan/ClothingStore/ /var/www/html/
+
+  * ls -l /var/www/html
+
+___
+BDD
+
+scp C:\Users\kode\Documents\www\sqls\lastones\shopseb.sql iulian.baranescu@212.47.251.44:/var/www/html/shop_base.sql
+scp C:\Users\Nicolas\Desktop\campus_marche_noir.sql nicolas.tan@51.15.220.20:/var/www/html/
+
+scp C:\Users\Nicolas\Desktop\campus_marche_noir.sql 
+qui a marché
+
+QUESTION :
+
+root nicolas différent de root ?
+
+
+A FAIRE :
+
+créer un compte + les droits sudo
+(grâce clé public 
+
+valider site base qui fonctionne et est stable
+en expliquant tout
+bdd, etc.
+
+url
+nom domaine
+html
+log 
+
+étape suivante, on met du DNS
