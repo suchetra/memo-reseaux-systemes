@@ -205,6 +205,16 @@ ___
 ___
 ___
 
+Raccourcis 
+
+revenir au répertoire précédent
+cd -
+
+retrouver une commande
+ctrl r motAChercher
+
+___
+
 scp root@monip: chemindufichier identifiantDestinataire@sonip ?
 
 * envoyer un fichier depuis mon serveur au serveur de quelqu'un d'autre (via son mot de passe), puis saisir son identifiant et mot de passe
@@ -340,8 +350,11 @@ on a la clé publique
 on donne à l'autre personne (exemple serveur distant) la clé privé comme ça il peut nous envoyer le message 
 
 ___
+LIEN SYMBOLIQUE 
 
-* voir le lien symbolique
+fichier qu'on modifie et le fichier cible, qui est issue du lien symbolique, qu'on veut modifier indirectement (sans le modifier directement)
+
+* voir le lien symbolique 
   * Simplest way: cd to where the symbolic link is located and do ls -l to list the details of the files. The part to the right of -> after the symbolic link is the destination to which it is pointing.
 Source: https://ostoday.org/apple/question-how-do-i-update-a-symbolic-link-in-linux.html
 
@@ -359,6 +372,9 @@ scp C:\Users\Nicolas\Desktop\campus_marche_noir.sql nicolas.tan@51.15.220.20:/va
 
 scp C:\Users\Nicolas\Desktop\campus_marche_noir.sql 
 qui a marché
+___
+
+
 
 QUESTION :
 
