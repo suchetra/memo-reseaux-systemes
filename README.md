@@ -374,25 +374,15 @@ scp C:\Users\Nicolas\Desktop\campus_marche_noir.sql
 qui a marché
 ___
 
+markdown
+markdown cheat sheet pdf
+
+créer un alias, raccourci 
+https://doc.ubuntu-fr.org/alias
+https://qastack.fr/ubuntu/686710/why-do-i-get-a-train-when-i-run-ls
+
+script shell programmation
+https://www.tuteurs.ens.fr/unix/shell/script.html
 
 
-QUESTION :
 
-root nicolas différent de root ?
-
-
-A FAIRE :
-
-créer un compte + les droits sudo
-(grâce clé public 
-
-valider site base qui fonctionne et est stable
-en expliquant tout
-bdd, etc.
-
-url
-nom domaine
-html
-log 
-
-étape suivante, on met du DNS
